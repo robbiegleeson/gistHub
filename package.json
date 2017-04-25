@@ -20,5 +20,19 @@
     "github-api": "^3.0.0",
     "path": "^0.12.7",
     "thunkify": "^2.1.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robbiegleeson/gistHub.git"
+  },
+  "keywords": [
+    "gist",
+    "github",
+    "node"
+  ],
+  "bugs": {
+    "url": "https://github.com/robbiegleeson/gistHub/issues"
+  },
+  "homepage": "https://github.com/robbiegleeson/gistHub#readme"
 }
