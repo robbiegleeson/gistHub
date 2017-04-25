@@ -1,0 +1,24 @@
+{
+  "name": "gist-hub",
+  "version": "1.0.0",
+  "description": "Command line tool for adding snippet files to GitGub Gist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rob Gleeson",
+  "license": "ISC",
+  "bin": {
+    "gist": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.9.0",
+    "copy-paste": "^1.3.0",
+    "github-api": "^3.0.0",
+    "path": "^0.12.7",
+    "thunkify": "^2.1.2"
+  }
+}
