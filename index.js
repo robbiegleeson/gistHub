@@ -7,18 +7,39 @@ const thunkify = require('thunkify');
 const fs = require('fs');
 const clipboard = require('copy-paste');
 const chalk = require('chalk');
-var path = require('path');
+const path = require('path');
+const nopt = require('nopt');
 
 const read = thunkify(fs.readFile);
 const DEFAULT_DESCRIPTION = 'Created with gistHub | by Rob Gleeson';
 
 program
     .arguments('<file>')
-    .option('-p, --public', 'Set the visability of the Gist (default: false)' )
+    .option('-a, --anonymous', 'Set the visability of the Gist (default: false)' )
+    .option('-e, --email', 'The email of the GitHub account')
+    .option('-p, --password', 'The passwork for the GitHub account')
     .action(function(file) {
         co(function *() {
-            var email = yield prompt('email: ');
-            var password = yield prompt.password('password: ');
+            var opts = {
+                anonymous: Boolean,
+                email: String,
+                password: String
+            };
+
+            var shorthands = {
+                a: '--anonymous',
+                e: '--email',
+                p: '--password'
+            };
+
+            var args = nopt(opts, shorthands, process.argv)
+
+            var email, username;
+            if (!args.email || !args.password) {
+                email = yield prompt('email: ');
+                password = yield prompt.password('password: ');
+            }
+
             var title = path.basename(file);
 
             read(file, 'utf8')(function (err, str) {
@@ -28,14 +49,14 @@ program
                 }
 
                 var gh = new GitHub({
-                   username: email,
-                   password: password
+                   username: args.email,
+                   password: args.password
                 });
 
                 var gist = gh.getGist();
 
                 gist.create({
-                    public: program.public,
+                    public: args.anonymous,
                     description: DEFAULT_DESCRIPTION,
                     files: {
                         [title]: {

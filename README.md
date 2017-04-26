@@ -8,4 +8,8 @@
 
 ## Usage
 
-`gist <path-to-file> -p <true/false>`
+You can pass in email, password and visibility as options:
+    + `gist <path-to-file> -p <username> -e <email> -a <boolean>`
+
+Alternatively you just do the following and you will be prompted for details
+    + `gist <path-to-file>`
