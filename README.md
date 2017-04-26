@@ -9,7 +9,7 @@
 ## Usage
 
 You can pass in email, password and visibility as options:
-    - `gist <path-to-file> -e <email> -p <password> -a <boolean>`
+- `gist <path-to-file> -e <email> -p <password> -a <boolean>`
 
 Alternatively you just do the following and you will be prompted for details
-    - `gist <path-to-file>`
+- `gist <path-to-file>`
