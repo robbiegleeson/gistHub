@@ -9,36 +9,50 @@ const clipboard = require('copy-paste');
 const chalk = require('chalk');
 const path = require('path');
 const nopt = require('nopt');
+const opn = require('opn');
+
+const request = require('http');
 
 const read = thunkify(fs.readFile);
 const DEFAULT_DESCRIPTION = 'Created with gistHub | by Rob Gleeson';
 
+function *validateArgs(processArgs) {
+    var opts = {
+        anonymous: String,
+        email: String,
+    };
+
+    var shorthands = {
+        a: '--anonymous',
+        e: '--email',
+    };
+
+    var args = nopt(opts, shorthands, processArgs)
+
+    if (!args.email || args.email === '') {
+        console.log(chalk.red('You didn\'t give me your email! -e <email>'));
+        process.exit(0);
+    }
+
+    if (!args.anonymous || !args.anonymous === '') {
+        console.log(chalk.red('Please set the Gist visability. -a <boolean>'));
+        process.exit(0);
+    }
+
+    var password = yield prompt.password('Git password: ');
+    var email = args.email;
+    var anonymous = args.anonymous;
+
+    return {password, email, anonymous}
+}
+
 program
     .arguments('<file>')
-    .option('-a, --anonymous', 'Set the visability of the Gist (default: false)' )
-    .option('-e, --email', 'The email of the GitHub account')
-    .option('-p, --password', 'The passwork for the GitHub account')
+    .option('-a, --anonymous', 'Set the visability of the Gist (Required)' )
+    .option('-e, --email', 'The email of the GitHub account (Required)')
     .action(function(file) {
         co(function *() {
-            var opts = {
-                anonymous: Boolean,
-                email: String,
-                password: String
-            };
-
-            var shorthands = {
-                a: '--anonymous',
-                e: '--email',
-                p: '--password'
-            };
-
-            var args = nopt(opts, shorthands, process.argv)
-
-            var email, username;
-            if (!args.email || !args.password) {
-                email = yield prompt('email: ');
-                password = yield prompt.password('password: ');
-            }
+            const args = yield validateArgs(process.argv);
 
             var title = path.basename(file);
 
@@ -66,11 +80,23 @@ program
                 }).then(function (resp) {
                     if (resp.status === 201) {
                         clipboard.copy(resp.data.html_url, () => { // eslint-disable-line
-                            console.log(chalk.green('Yay, Gist created!'));
-                            console.log(chalk.green(`Copied Gist URL to clipboard!`));
-                            process.exit(0)
+                            co(function *() {
+                                console.log(chalk.green('Yay, Gist created!'));
+                                const choice = yield prompt(chalk.blue('Do you wish to open your Gist in a broswer?: y/n '));
+                                if (choice === 'y') {
+                                    opn(resp.data.html_url);
+                                } else {
+                                    console.log(chalk.green(`Copied Gist URL to clipboard!`));
+                                }
+                                process.exit(0)
+                            });
                         });
+                    } else if (!resp) {
+                        console.log('No response');
+                        process.exit(0)
                     }
+                }).catch(function (err) {
+                    console.log(chalk.red('Error: Unale to authenticate you.'));
                 });
             });
         }).catch((err) => {
