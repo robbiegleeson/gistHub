@@ -12,7 +12,7 @@ Pet project where I hope to add a new feature or improve existing functionality 
 
 - `gist <path-to-file> -e <email> -a <boolean>`
 
-## What's New v2.0.1
+## What's New v2.1.0
 - Added ability to view user Gists
 - Some refactoring
 
