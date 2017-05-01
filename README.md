@@ -10,10 +10,15 @@ Pet project where I hope to add a new feature or improve existing functionality 
 
 ## Usage
 
-- `gist <path-to-file> -e <email> -a <boolean>`
+- Upload a gist:
+    - `gist <path-to-file> -u <username> -p <private - boolean>`
+    - Example: `gist index.js -u gitusername -p true`
+- View Gists:
+    - `gist -u <username> -v`
 
-## What's New v2.1.0
+## What's New v2.1.1
 - Added ability to view user Gists
+- Let user set privacy of Gist
 - Some refactoring
 
 ## What's New v2.0.0
