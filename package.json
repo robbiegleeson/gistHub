@@ -12,9 +12,9 @@
     "gist": "./index.js"
   },
   "dependencies": {
-    "chalk": "^1.1.3",
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
+    "colors": "^1.1.2",
     "command-line-args": "^4.0.3",
     "commander": "^2.9.0",
     "copy-paste": "^1.3.0",

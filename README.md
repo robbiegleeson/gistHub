@@ -10,22 +10,37 @@ Pet project where I hope to add a new feature or improve existing functionality 
 
 ## Usage
 
-- Upload a gist:
-    - `gist <path-to-file> -u <username> -p <private - boolean>`
-    - Example: `gist index.js -u gitusername -p true`
-- View Gists:
-    - `gist -u <username> -v`
+
+
+```bash
+
+    // Options
+    -u username (Required)
+    -v view
+    -p is gist private
+    -d custom description
+
+    // Create new Gist
+    gist myAwesomeFile.js -u myusername -p true -d "my custom description"
+
+    // View user Gists
+    gist -u myusername -v
+
+    //Delete a Gist
+    gist -u myusername -d gistId
+```
+
+## What's New v2.1.2
+- Ability to delete Gist given ID
+- Added custom descriptions
+- Minor refactoring
 
 ## What's New v2.1.1
 - Added ability to view user Gists
 - Let user set privacy of Gist
 - Some refactoring
 
-## What's New v2.0.0
-- Better error handling
-- Less flags to pass
-- Must authenticate in order to create Gist (previously didn't even have to enter any credentials! Crazy!)
-
 ## To-do
-- More refactoring - bring code up to a better standard
-- Add ability to delete Gist given ID
+- More refactoring, always more refactoring!
+- Delete Gist from selection rather than passing in the ID.
+- Open to suggestions!
