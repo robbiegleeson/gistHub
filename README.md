@@ -31,12 +31,10 @@ Pet project where I hope to add a new feature or improve existing functionality 
     gist -u myusername -d gistId
 ```
 
-## What's New v2.1.2
+## What's new version 2.1
 - Ability to delete Gist given ID
 - Added custom descriptions
 - Minor refactoring
-
-## What's New v2.1.1
 - Added ability to view user Gists
 - Let user set privacy of Gist
 - Some refactoring
