@@ -19,6 +19,7 @@ Pet project where I hope to add a new feature or improve existing functionality 
     -v view
     -p is gist private
     -d custom description
+    -r id of gist to be deleted
 
     // Create new Gist
     gist myAwesomeFile.js -u myusername -p true -d "my custom description"
