@@ -33,8 +33,6 @@ Pet project where I hope to add a new feature or improve existing functionality 
 
 On Linux systems, use `node index.js` in place of `gist`.
 
-On Linux systems, use `node index.js` in place of `gist`.
-
 
 ## What's new version 2.1
 - Ability to delete Gist given from selection
