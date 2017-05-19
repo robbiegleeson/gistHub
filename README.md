@@ -30,7 +30,7 @@ Pet project where I hope to add a new feature or improve existing functionality 
     ## Delete a Gist
     gist -u myusername -d gistId
 ```
-On Linux systems, use `noide index.js` in place of `gist`.
+On Linux systems, use `node index.js` in place of `gist`.
 
 
 On Linux systems, use `node index.js` in place of `gist`.
