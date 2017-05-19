@@ -30,6 +30,8 @@ Pet project where I hope to add a new feature or improve existing functionality 
     //Delete a Gist
     gist -u myusername -d gistId
 ```
+On Linux systems, use `noide index.js` in place of `gist`.
+
 
 ## What's new version 2.1
 - Ability to delete Gist given ID
