@@ -12,7 +12,6 @@ const opn = require('opn');
 const request = require('request');
 const commandLineArgs = require('command-line-args');
 const colors = require('colors');
-const Enquirer = require('enquirer');
 
 const read = thunkify(fs.readFile);
 const DEFAULT_DESCRIPTION = 'Created with gistHub | by Rob Gleeson';
@@ -111,36 +110,6 @@ function *showUserGists(username) {
         }
 
         process.exit(0);
-
-       
-    
-        var newObj = {};
-        console.log('File\t\t\t\t\tCreated Time\t\t\tID'.grey);
-        for (var i = 0; i < gists.length; i++) {
-            var gist = gists[i];
-            console.log((i + 1) + ' ' +  Object.keys(gist.files)+'\t\t\t'+gist.created_at+'\t\t'+gist.id);
-        }
-
-       var enquirer = new Enquirer();
-       enquirer.register('confirm', require('prompt-confirm'));
-
-       enquirer.question('delete', 'Do you wish to delete any of the above gists?', {type: 'confirm'});
-       enquirer.prompt('delete')
-       .then(function(answer) {
-           if (!answer.delete) {
-               enquirer.question('selection', 'Please enter the number from the list you wish to delete: ');
-               
-               enquirer.ask('selection')
-               .then(function(answer) {
-                   if (!isNaN(parseInt(answer.selection)) && parseInt(answer.selection) >= gists.length) {
-                       console.log(answer.selection);
-                   }
-                })
-                .catch(function(err) {
-                    console.log(err)
-                });
-           }
-        });
     });
 }
 
