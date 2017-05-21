@@ -14,34 +14,33 @@ Pet project where I hope to add a new feature or improve existing functionality 
 
 ```bash
 
-    // Options
+    ## Options
     -u username (Required)
     -v view
     -p is gist private
     -d custom description
     -r id of gist to be deleted
 
-    // Create new Gist
+    ## Create new Gist
     gist myAwesomeFile.js -u myusername -p true -d "my custom description"
 
-    // View user Gists
+    ## View user Gists
     gist -u myusername -v
 
-    //Delete a Gist
+    ## Delete a Gist
     gist -u myusername -d gistId
 ```
+
 On Linux systems, use `node index.js` in place of `gist`.
 
 
 ## What's new version 2.1
-- Ability to delete Gist given ID
-- Added custom descriptions
-- Minor refactoring
-- Added ability to view user Gists
-- Let user set privacy of Gist
-- Some refactoring
+- Ability to delete Gist given from selection
 
 ## To-do
-- More refactoring, always more refactoring!
-- Delete Gist from selection rather than passing in the ID.
-- Open to suggestions!
+- Save login credentials using `init` function (as an option).
+- User separate commands rather than passing in a whole load of options in one.
+
+## Contributors
+- [Rob Gleeson](https://github.com/robbiegleeson)
+- [Andrew Winterbotham](https://github.com/xkal36)
