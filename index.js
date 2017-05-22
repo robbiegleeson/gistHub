@@ -71,7 +71,7 @@ function *showUserGists(username) {
             });
 
             gitRequest = thunkify(gitRequest);
-            
+
             var resp = (yield gitRequest(usersUrl + username + '/gists'))[0];
             if (resp.statusCode === 403 || resp.statusCode === 401) {
                 console.log(`Error: ${resp.statusMessage}`.red);
@@ -79,7 +79,6 @@ function *showUserGists(username) {
             }
 
             var obj = JSON.parse(resp.body);
-            console.log('got here');
             var gists = Object.keys(obj).map(function (key) {
                 return obj[key];
             });
