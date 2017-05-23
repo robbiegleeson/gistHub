@@ -1,5 +1,9 @@
 # Gist-Hub
 
+![NPM](https://github.com/robbiegleeson/gistHub/raw/master/npm.png "NPM")
+
+[GistHub NPM](https://www.npmjs.com/package/gist-hub)
+
 *Command Line tool for uploading snippets to GitHub Gist*
 
 Pet project where I hope to add a new feature or improve existing functionality on a weekly basis! Sure it's only a bit of craic!
@@ -36,10 +40,10 @@ Pet project where I hope to add a new feature or improve existing functionality 
 ```
 
 
-## What's new version 2.1
-- Ability to delete Gist given from selection
-- Save configuration settings
-- New command to view gists
+## What's new version 3.0
+- New command to view gists and delete from selection
+- Save and reset configuration settings
+
 
 ## Contributors
 - [Rob Gleeson](https://github.com/robbiegleeson)

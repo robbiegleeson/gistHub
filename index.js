@@ -67,14 +67,26 @@ function *validateArgs(options) {
 
 function *showUserGists(username) {
     const userconfig = JSON.parse(configExists());
-    let password;
     if (!userconfig.password) {
         password = yield requestUserPassword();
     }
 
+    password = userconfig.password;
+
+    var gitRequest = request.defaults({
+        headers: {
+            'User-Agent': 'ua'
+        },
+        auth: {
+            'username': username,
+            'password': password
+        }
+    });
+
     gitRequest = thunkify(gitRequest);
 
     var resp = (yield gitRequest(usersUrl + username + '/gists'))[0];
+    spinner.stop();
     if (resp.statusCode === 403 || resp.statusCode === 401) {
         console.log(`Error: ${resp.statusMessage}`.red);
         process.exit(0);
