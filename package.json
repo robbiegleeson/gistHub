@@ -1,6 +1,6 @@
 {
   "name": "gist-hub",
-  "version": "2.1.6",
+  "version": "3.0.0",
   "description": "Command line tool for adding snippet files to GitGub Gist",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "gist": "./index.js"
   },
   "dependencies": {
+    "cli-table": "^0.3.1",
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
     "colors": "^1.1.2",
@@ -19,12 +20,15 @@
     "commander": "^2.9.0",
     "copy-paste": "^1.3.0",
     "github-api": "^3.0.0",
+    "inquirer": "^3.0.6",
     "nopt": "^4.0.1",
     "opn": "^4.0.2",
+    "ora": "^1.2.0",
     "path": "^0.12.7",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
-    "thunkify": "^2.1.2"
+    "thunkify": "^2.1.2",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "repository": {
