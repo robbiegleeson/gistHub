@@ -6,6 +6,12 @@
 
 *Command Line tool for uploading snippets to GitHub Gist*
 
+[![NPM](https://nodei.co/npm/gist-hub.png?downloads=true)](https://nodei.co/npm/gist-hub/)
+
+
+[![npm](https://img.shields.io/npm/dm/gist-hub.svg)]()
+
+
 Pet project where I hope to add a new feature or improve existing functionality on a weekly basis! Sure it's only a bit of craic!
 
 ## Installation
@@ -13,7 +19,6 @@ Pet project where I hope to add a new feature or improve existing functionality 
 - `cd gistHub && npm install -g`
 
 ## Usage
-
 
 
 ```bash
