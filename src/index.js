@@ -1,5 +1,6 @@
 #!/usr/bin/env node --harmony
-const commander = require('commander');
+import 'babel-polyfill';
+import commander from 'commander';
 const co = require('co');
 const prompt = require('co-prompt');
 const GitHub = require('github-api');
@@ -18,6 +19,8 @@ const _ = require('underscore');
 const ora = require('ora');
 const spinner = ora('Working...');
 const Table = require('cli-table');
+
+import * as config from './options/config';
 
 
 const read = thunkify(fs.readFile);
@@ -254,15 +257,12 @@ commander
     .description('Configure your GitHub credentials')
     .action(function() {
         co(function *() {
-            if (configExists()) {
+            if (config.getConfig()) {
                 console.log('GistHub already configured'.red);
                 process.exit();
             }
 
-            let username = yield prompt('Enter you GitHub username or email: '.yellow);
-            const password = yield prompt.password('Enter your GitHub password: '.yellow);
-
-            saveConfig({username, password});
+            config.saveConfig({username, password});
             console.log('Success: Configuration complete'.green);
             process.exit();
         });
@@ -354,3 +354,7 @@ commander
             process.exit(0);
         });
 }).parse(process.argv);
+
+export default {
+  config,
+}
