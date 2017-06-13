@@ -10,7 +10,11 @@ var _colors2 = _interopRequireDefault(_colors);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/*eslint-enable */
+
 const HOMEDIR = process.env[process.platform === 'WIN32' ? 'USERPROFILE' : 'HOME'];
+/*eslint-disable */
+
 const gistConfig = '.config';
 
 function getUserConfig() {
@@ -35,9 +39,7 @@ function reset() {
     _fs2.default.unlink(`${HOMEDIR}/${gistConfig}/user-config.json`, error => {
       if (error) return console.log(error);
       return console.log('Config reset successfully'.green);
-      process.exit();
     });
-    return;
   });
 }
 
