@@ -2,16 +2,44 @@
   "name": "gist-hub",
   "version": "3.0.1",
   "description": "Command line tool for adding snippet files to GitGub Gist",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint './src/*.js'",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint",
+    "build": "./node_modules/.bin/babel ./src -d dist"
   },
   "author": "Rob Gleeson",
   "license": "ISC",
   "bin": {
-    "gist": "./index.js"
+    "gist": "./dist/index.js"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "plugins": [
+      "import"
+    ],
+    "rules": {
+      "no-console": 0
+    },
+    "env": {
+      "browser": true,
+      "mocha": true
+    }
+  },
+  "babel": {
+    "presets": [
+      "es2015-node6/object-rest"
+    ],
+    "plugins": [
+      "syntax-async-functions",
+      "transform-regenerator"
+    ]
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "babel-runtime": "^6.23.0",
     "cli-table": "^0.3.1",
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
@@ -20,7 +48,7 @@
     "commander": "^2.9.0",
     "copy-paste": "^1.3.0",
     "github-api": "^3.0.0",
-    "inquirer": "^3.0.6",
+    "inquirer": "^3.1.0",
     "nopt": "^4.0.1",
     "opn": "^4.0.2",
     "ora": "^1.2.0",
@@ -30,7 +58,18 @@
     "thunkify": "^2.1.2",
     "underscore": "^1.8.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.24.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-regenerator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2015-node6": "^0.4.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robbiegleeson/gistHub.git"
@@ -38,7 +77,9 @@
   "keywords": [
     "gist",
     "github",
-    "node"
+    "node",
+    "babel",
+    "es6"
   ],
   "bugs": {
     "url": "https://github.com/robbiegleeson/gistHub/issues"

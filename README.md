@@ -45,9 +45,13 @@ Pet project where I hope to add a new feature or improve existing functionality 
 ```
 
 
-## What's new version 3.0
-- New command to view gists and delete from selection
-- Save and reset configuration settings
+## What's new version 3.0.2
+- Updated view of gists
+- ES6 - Babel - lint - travis.ci
+- Nothin' much else other than a lot of refactoring!
+
+## Contributing
+Always welcome new contributors! Fork -> create a branch - run the linter (`npm run lint`) and submit a pull request!
 
 
 ## Contributors
