@@ -45,7 +45,7 @@ Pet project where I hope to add a new feature or improve existing functionality 
 ```
 
 
-## What's new version 3.0.2
+## What's new version 3.0.3
 - Updated view of gists
 - ES6 - Babel - lint - travis.ci
 - Nothin' much else other than a lot of refactoring!
