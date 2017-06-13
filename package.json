@@ -1,6 +1,6 @@
 {
   "name": "gist-hub",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Command line tool for adding snippet files to GitGub Gist",
   "main": "dist/index.js",
   "scripts": {
