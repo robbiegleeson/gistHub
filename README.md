@@ -15,8 +15,7 @@
 Pet project where I hope to add a new feature or improve existing functionality on a weekly basis! Sure it's only a bit of craic!
 
 ## Installation
-- Clone the repo `git clone https://github.com/robbiegleeson/gistHub.git`
-- `cd gistHub && npm install -g`
+- `npm install -g gist-hub`
 
 ## Usage
 
